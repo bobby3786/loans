@@ -1,0 +1,31 @@
+services:
+
+ 
+    
+ loans:
+   image: bobby3786/loans:s4
+   container_name: loans-ms
+   ports:
+    - "8090:8090"
+   deploy:
+    resources:
+     limits:
+      memory: 700m
+   networks:
+    - eazybank   
+    
+ cards:
+   image: bobby3786/cards:s4
+   container_name: cards-ms
+   ports:
+    - "9000:9000"
+   deploy:
+    resources:
+     limits:
+      memory: 700m
+   networks:
+    - eazybank   
+ 
+networks:
+ eazybank:
+   driver: "bridge"   
